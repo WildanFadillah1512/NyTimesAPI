@@ -13,13 +13,13 @@ exports.getAllArticles = (req, res) => {
 };
 
 exports.addArticle = (req, res) => {
-    const { title, author, published_date, url, id_category } = req.body;
+    const { id_category, title, author, published_date, url } = req.body;
 
     const query = `
-        INSERT INTO articles (title, author, published_date, url, id_category)
+        INSERT INTO articles (id_category, title, author, published_date, url)
         VALUES (?, ?, ?, ?, ?)
     `;
-    db.query(query, [title, author, published_date, url, id_category], (err) => {
+    db.query(query, [id_category, title, author, published_date, url], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         res.status(201).json({ message: 'Article added successfully' });
     });
