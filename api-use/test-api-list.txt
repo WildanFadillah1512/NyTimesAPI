@@ -1,0 +1,40 @@
+(Bahasa Indonesia)
+
+Articles
+GET /api/articles: Get all articles from the database. ✅
+POST /api/articles: Adds a new article to the database. ✅
+PUT /api/articles/:id_article: Updates the article based on the ID. ✅
+DELETE /api/articles/:id_article: Deleting an article by ID. ✅
+
+Categories
+GET /api/categories: Get all categories from the database. ✅
+POST /api/categories: Adds a new category to the database. ✅
+PUT /api/categories/:id_category: Updates the category by ID. ✅
+DELETE /api/categories/:id_category: Deleting a category by ID. ✅
+
+Favorites
+GET /api/favorites: Get the user's favorite articles (authentication required). ✅
+POST /api/favorites: Adds an article to the user's favorites list (authentication required). ✅
+PUT /api/favorites/:id_favorite: Updates a favorite article (authentication required). ✅
+DELETE /api/favorites/:id_favorite: Delete an article from the favorites list (authentication required). ✅
+
+Users
+POST /api/users/register: Register a new user. ✅
+POST /api/users/login: Logging in and getting an authentication token. ✅
+GET /api/users/profile: Get the profile of the user who is logged in (authentication required). ✅
+PUT /api/users/profile: Updates the user profile (authentication required) ✅.
+DELETE /api/users/profile: Deleting a user account (authentication required) ✅.
+
+`
+
+
+NY Times (NYT)
+GET /api/nyt/top-stories: Get top stories from NYT ✅.
+GET /api/nyt/top-stories/:category: Get the top stories by category. ✅
+GET /api/nyt/search: Searches for articles based on keywords. ✅
+GET /api/nyt/search/date: Search for articles based on keywords with a date range.✅
+GET /api/nyt/most-viewed/:period: Gets the most viewed articles by period (1, 7, or 30 days). ✅
+GET /api/nyt/most-shared/:period: Gets the most shared articles by period (1, 7, or 30 days). ✅
+GET /api/nyt/book-reviews: Get book reviews by name. ✅
+GET /api/nyt/movie-reviews: Gets movie reviews. X
+GET /api/nyt/articles/section/:section: Getting articles based on a specific section. ✅
