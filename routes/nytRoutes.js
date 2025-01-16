@@ -5,7 +5,7 @@ const {
     searchArticles,
     getTopStoriesByCategory,
     searchArticlesByDate,
-    getMostPopularArticles,
+    getMostViewedArticles,
     getMostSharedArticles,
     getBookReviews,
     getMovieReviews,
@@ -19,7 +19,7 @@ router.get('/top-stories', getTopStories);
 router.get('/search', searchArticles);
 router.get('/search/date', searchArticlesByDate);
 router.get('/top-stories/:category', getTopStoriesByCategory);
-router.get('/most-popular/:period', getMostPopularArticles);
+router.get('/most-viewed/:period', getMostViewedArticles);
 router.get('/most-shared/:period', getMostSharedArticles);
 router.get('/book-reviews', getBookReviews);
 // router.get('/movie-reviews/', getMovieReviews);

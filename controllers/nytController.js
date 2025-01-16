@@ -42,7 +42,7 @@ exports.searchArticlesByDate = async (req, res) => {
     }
 };
 
-exports.getMostPopularArticles = async (req, res) => {
+exports.getMostViewedArticles = async (req, res) => {
     const { period } = req.params;
 
     try {
