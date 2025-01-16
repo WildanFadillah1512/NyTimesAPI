@@ -15,7 +15,7 @@ db.connect((err) => {
     console.error("Database connection failed: " + err.stack);
     return;
   }
-  console.log("Connected to the database.");
+  console.log("Connected to the database :",  process.env.DB_NAME);
 });
 
 module.exports = db;
