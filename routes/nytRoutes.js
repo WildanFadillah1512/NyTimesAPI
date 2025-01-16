@@ -22,7 +22,7 @@ router.get('/top-stories/:category', getTopStoriesByCategory);
 router.get('/most-popular/:period', getMostPopularArticles);
 router.get('/most-shared/:period', getMostSharedArticles);
 router.get('/book-reviews', getBookReviews);
-router.get('/movie-reviews', getMovieReviews);
+// router.get('/movie-reviews/', getMovieReviews);
 router.get('/articles/section/:section', getArticlesBySection);
 router.get('/article/url/:url', getArticleByUrl);
 
