@@ -4,6 +4,6 @@ name : Mohammad Naufal Maulana
 student number : 20230040070
 
 name : Wildan Fadillah
-student number : 
+student number : 20230040049
 
 documentation : soon
