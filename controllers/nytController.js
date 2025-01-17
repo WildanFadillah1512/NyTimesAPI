@@ -74,31 +74,11 @@ exports.getBookReviews = async (req, res) => {
     }
 };
 
-// exports.getMovieReviews = async (req, res) => {
-//     try {
-//         const response = await axios.get(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=godfather&api-key=${process.env.NYT_API_KEY}`);
-//         res.json(response.data);
-//     } catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-// };
-
 exports.getArticlesBySection = async (req, res) => {
     const { section } = req.params;
 
     try {
         const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content/all/${section}.json?api-key=${process.env.NYT_API_KEY}`);
-        res.json(response.data);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-exports.getArticleByUrl = async (req, res) => {
-    const { url } = req.params;
-
-    try {
-        const response = await axios.get(`https://api.nytimes.com/svc/news/v3/content.json?url=${url}&api-key=${process.env.NYT_API_KEY}`);
         res.json(response.data);
     } catch (error) {
         res.status(500).json({ error: error.message });
