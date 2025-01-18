@@ -12,12 +12,13 @@
     <a href="https://www.npmjs.com/package/mysql2"><img src="https://img.shields.io/github/package-json/dependency-version/WildanFadillah1512/NyTimesAPI/mysql2?color=green" alt="Package - mysql2"></a>
     <a href="https://www.npmjs.com/package/joi"><img src="https://img.shields.io/github/package-json/dependency-version/WildanFadillah1512/NyTimesAPI/joi?color=green" alt="Package - joi"></a>
 </p>
-
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=Fira+Code&color=ffffff&size=45&center=true&vCenter=true&width=1000&lines=This+is+our+API+Project;Coding+is+easy;Right?;😃)](https://git.io/typing-svg)
+<p align="left"> 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=Fira+Code&color=ffffff&size=45&center=true&vCenter=true&width=1000&lines=This+is+our+API+Project;Coding+is+easy,;Right?;😃)](https://git.io/typing-svg)
+</p>
 
 ## Introduction
 
-This project can access and utilize data from [The New York Times](https://developer.nytimes.com/apis) API. Using this API, the application can retrieve current news, articles, and other data.
+This project can access and utilize data from [The New York Times API](https://developer.nytimes.com/apis). Using this API, the application can retrieve current news, articles, and other data.
 
 ## Purpose
 
@@ -28,10 +29,9 @@ Lecturer: Alun Sujjada, S.Kom, M.T
 
 ## Authors
 
-Wildan Fadillah
+Wildan Fadillah \
 20230040049
-
-Mohammad Naufal Maulana
+Mohammad Naufal Maulana \
 20230040070
 
 # Documentation
