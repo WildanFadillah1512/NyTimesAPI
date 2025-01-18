@@ -2,8 +2,14 @@ const db = require("../models/db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+
 exports.register = (req, res) => {
   const { username, password, email } = req.body;
+
+  if (!username || !password || !email) {
+    return res.status(400).json({ message: "Username, password and email are required" });
+  }
+
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   const query =
@@ -15,7 +21,11 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
+
+  if (!username || !password || !email) {
+    return res.status(400).json({ message: "Username and password are required" });
+  }
 
   const query = "SELECT * FROM users WHERE username = ?";
   db.query(query, [username], (err, results) => {
@@ -38,6 +48,7 @@ exports.login = (req, res) => {
 };
 
 exports.getProfile = (req, res) => {
+
   const { id_user } = req.user;
 
   const query = "SELECT username, email FROM users WHERE id_user = ?";
@@ -50,6 +61,10 @@ exports.getProfile = (req, res) => {
 exports.updateUser = (req, res) => {
   const { id_user } = req.user;
   const { username, password, email } = req.body;
+
+  if (!username || !password || !email) {
+    return res.status(400).json({ message: "Username, password and email are required" });
+  }
 
   const hashedPassword = bcrypt.hashSync(password, 10);
   const query =

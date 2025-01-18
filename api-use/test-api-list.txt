@@ -19,14 +19,11 @@ PUT /api/favorites/:id_favorite: Updates a favorite article (authentication requ
 DELETE /api/favorites/:id_favorite: Delete an article from the favorites list (authentication required). ✅
 
 Users
-POST /api/users/register: Register a new user. ✅
-POST /api/users/login: Logging in and getting an authentication token. ✅
+POST /api/users/register: Register a new user. ✅ (update security sederhana dan beberapa kriteria string gitu untuk register dan login)
+POST /api/users/login: Logging in and getting an authentication token. ✅ (update security sederhana dan beberapa kriteria string gitu untuk register dan login)
 GET /api/users/profile: Get the profile of the user who is logged in (authentication required). ✅
 PUT /api/users/profile: Updates the user profile (authentication required) ✅.
 DELETE /api/users/profile: Deleting a user account (authentication required) ✅.
-
-`
-
 
 NY Times (NYT)
 GET /api/nyt/top-stories: Get top stories from NYT ✅.
