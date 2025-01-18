@@ -1,4 +1,7 @@
 <h1> NyTimesAPI </h1>
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=Fira+Code&color=ffffff&size=45&center=true&vCenter=true&width=1000&lines=This+is+our+API+Project;Coding+is+easy,;Right?;😃)](https://git.io/typing-svg)
+
 <p>
     <a href="https://www.npmjs.com/package/node"><img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"></a>
     <a href="https://www.npmjs.com/package/express"><img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"></a>
@@ -11,9 +14,6 @@
     <a href="https://www.npmjs.com/package/jsonwebtoken"><img src="https://img.shields.io/github/package-json/dependency-version/WildanFadillah1512/NyTimesAPI/jsonwebtoken?color=green" alt="Package - jsonwebtoken"></a>
     <a href="https://www.npmjs.com/package/mysql2"><img src="https://img.shields.io/github/package-json/dependency-version/WildanFadillah1512/NyTimesAPI/mysql2?color=green" alt="Package - mysql2"></a>
     <a href="https://www.npmjs.com/package/joi"><img src="https://img.shields.io/github/package-json/dependency-version/WildanFadillah1512/NyTimesAPI/joi?color=green" alt="Package - joi"></a>
-</p>
-<p align="left"> 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=Fira+Code&color=ffffff&size=45&center=true&vCenter=true&width=1000&lines=This+is+our+API+Project;Coding+is+easy,;Right?;😃)](https://git.io/typing-svg)
 </p>
 
 ## Introduction
@@ -30,9 +30,9 @@ Lecturer: Alun Sujjada, S.Kom, M.T
 ## Authors
 
 Wildan Fadillah \
-20230040049
+20230040049 \
 Mohammad Naufal Maulana \
-20230040070
+20230040070 \
 
 # Documentation
 
