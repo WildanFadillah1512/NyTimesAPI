@@ -1,16 +1,16 @@
 (Bahasa Indonesia)
 
 Articles
-GET /api/articles: Get all articles from the database. ✅
-POST /api/articles: Adds a new article to the database. ✅
-PUT /api/articles/:id_article: Updates the article based on the ID. ✅
-DELETE /api/articles/:id_article: Deleting an article by ID. ✅
+GET /api/articles: Get all articles from the database. ✅ (authentication)
+POST /api/articles: Adds a new article to the database. ✅ (authentication)
+PUT /api/articles/:id_article: Updates the article based on the ID. ✅ (authentication)
+DELETE /api/articles/:id_article: Deleting an article by ID. ✅ (authentication)
 
 Categories
-GET /api/categories: Get all categories from the database. ✅
-POST /api/categories: Adds a new category to the database. ✅
-PUT /api/categories/:id_category: Updates the category by ID. ✅
-DELETE /api/categories/:id_category: Deleting a category by ID. ✅
+GET /api/categories: Get all categories from the database. ✅ (authentication)
+POST /api/categories: Adds a new category to the database. ✅ (authentication)
+PUT /api/categories/:id_category: Updates the category by ID. ✅ (authentication)
+DELETE /api/categories/:id_category: Deleting a category by ID. ✅ (authentication)
 
 Favorites
 GET /api/favorites: Get the user's favorite articles (authentication required). ✅
@@ -26,12 +26,11 @@ PUT /api/users/profile: Updates the user profile (authentication required) ✅.
 DELETE /api/users/profile: Deleting a user account (authentication required) ✅.
 
 NY Times (NYT)
-GET /api/nyt/top-stories: Get top stories from NYT ✅.
-GET /api/nyt/top-stories/:category: Get the top stories by category. ✅
-GET /api/nyt/search: Searches for articles based on keywords. ✅
-GET /api/nyt/search/date: Search for articles based on keywords with a date range.✅
-GET /api/nyt/most-viewed/:period: Gets the most viewed articles by period (1, 7, or 30 days). ✅
-GET /api/nyt/most-shared/:period: Gets the most shared articles by period (1, 7, or 30 days). ✅
-GET /api/nyt/book-reviews: Get book reviews by name. ✅
-GET /api/nyt/movie-reviews: Gets movie reviews. X
-GET /api/nyt/articles/section/:section: Getting articles based on a specific section. ✅
+GET /api/nyt/top-stories: Get top stories from NYT ✅. (authentication)
+GET /api/nyt/top-stories/:category: Get the top stories by category. ✅ (authentication)
+GET /api/nyt/search: Searches for articles based on keywords. ✅ (authentication)
+GET /api/nyt/search/date: Search for articles based on keywords with a date range.✅ (authentication)
+GET /api/nyt/most-viewed/:period: Gets the most viewed articles by period (1, 7, or 30 days). ✅ (authentication)
+GET /api/nyt/most-shared/:period: Gets the most shared articles by period (1, 7, or 30 days). ✅ (authentication)
+GET /api/nyt/book-reviews: Get book reviews by name. ✅ (authentication)
+GET /api/nyt/articles/section/:section: Getting articles based on a specific section. ✅ (authentication)
