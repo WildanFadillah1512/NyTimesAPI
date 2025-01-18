@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-exports.register = (req, res) => {
+const register = (req, res) => {
   const { username, password, email } = req.body;
 
   if (!username || !password || !email) {
@@ -20,11 +20,11 @@ exports.register = (req, res) => {
   });
 };
 
-exports.login = (req, res) => {
+const login = (req, res) => {
   const { username, password, email } = req.body;
 
   if (!username || !password || !email) {
-    return res.status(400).json({ message: "Username and password are required" });
+    return res.status(400).json({ message: "Username, password and email are required" });
   }
 
   const query = "SELECT * FROM users WHERE username = ?";
@@ -47,7 +47,7 @@ exports.login = (req, res) => {
   });
 };
 
-exports.getProfile = (req, res) => {
+const getProfile = (req, res) => {
 
   const { id_user } = req.user;
 
@@ -58,7 +58,7 @@ exports.getProfile = (req, res) => {
   });
 };
 
-exports.updateUser = (req, res) => {
+const updateUser = (req, res) => {
   const { id_user } = req.user;
   const { username, password, email } = req.body;
 
@@ -75,7 +75,7 @@ exports.updateUser = (req, res) => {
   });
 };
 
-exports.deleteUser = (req, res) => {
+const deleteUser = (req, res) => {
   const { id_user } = req.user;
 
   const query = "DELETE FROM users WHERE id_user = ?";
@@ -84,3 +84,5 @@ exports.deleteUser = (req, res) => {
     res.json({ message: "User deleted successfully" });
   });
 };
+
+module.exports = { register, login, getProfile, updateUser, deleteUser }

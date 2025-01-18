@@ -1,4 +1,5 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const cors = require("cors");
 
 const articlesRoutes = require("./routes/articlesRoutes");
@@ -9,8 +10,12 @@ const nytRoutes = require("./routes/nytRoutes");
 
 const app = express();
 
+const PORT = process.env.PORT;
+
 app.use(cors());
 app.use(express.json())
+
+dotenv.config();
 
 app.use("/api/articles", articlesRoutes);
 app.use("/api/categories", categoriesRoutes);
@@ -20,6 +25,10 @@ app.use("/api/nyt", nytRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the NY Times REST API");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
 
 app.use((req, res) => {
