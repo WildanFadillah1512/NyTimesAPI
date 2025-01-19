@@ -31,8 +31,12 @@ Lecturer: Alun Sujjada, S.Kom, M.T
 
 Wildan Fadillah \
 20230040049 \
+
 Mohammad Naufal Maulana \
-20230040070
+20230040070 \
+
+Rina Kurniawati \
+20230040052
 
 # Documentation
 
