@@ -13,7 +13,6 @@ const patternValidation = (schema) => {
 
 const schema = joi.object({
     username: joi.string()
-        .alphanum()
         .min(3)
         .max(30)
         .required(),

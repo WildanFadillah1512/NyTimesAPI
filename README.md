@@ -32,11 +32,11 @@ Lecturer: Alun Sujjada, S.Kom, M.T
 Wildan Fadillah \
 20230040049 \
 Mohammad Naufal Maulana \
-20230040070 \
+20230040070
 
 # Documentation
 
-You can read the API documentation on the [following page.]()
+You can read the API documentation on the [following page.](https://documenter.getpostman.com/view/40838067/2sAYQanBYG)
 
 # Presentation
 
