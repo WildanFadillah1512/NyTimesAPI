@@ -42,17 +42,6 @@ exports.searchArticlesByDate = async (req, res) => {
     }
 };
 
-exports.getMostViewedArticles = async (req, res) => {
-    const { period } = req.params;
-
-    try {
-        const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/${period}.json?api-key=${process.env.NYT_API_KEY}`);
-        res.json(response.data);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
 exports.getMostSharedArticles = async (req, res) => {
     const { period } = req.params;
 
