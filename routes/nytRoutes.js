@@ -10,18 +10,18 @@ const {
     getArticlesBySection
 } = require('../controllers/nytController');
 
-const userMiddleware = require('../middlewares/userMiddleware')
-const credentialsMiddleware = require('../middlewares/credentialsMiddleware');
+const verifyToken = require('../middlewares/verifyToken');
+const verifyLogin = require('../middlewares/verifyLogin');
 
 const router = express.Router();
 
-router.get('/top-stories', userMiddleware, credentialsMiddleware, getTopStories);
-router.get('/search', userMiddleware, credentialsMiddleware, searchArticles);
-router.get('/search/date', userMiddleware, credentialsMiddleware, searchArticlesByDate);
-router.get('/top-stories/:category', userMiddleware, credentialsMiddleware, getTopStoriesByCategory);
-router.get('/most-shared/:period', userMiddleware, credentialsMiddleware, getMostSharedArticles);
-router.get('/book-reviews', userMiddleware, credentialsMiddleware, getBookReviews);
-router.get('/articles/section/:section', userMiddleware, credentialsMiddleware, getArticlesBySection);
+router.get('/top-stories', verifyToken, verifyLogin, getTopStories);
+router.get('/search', verifyToken, verifyLogin, searchArticles);
+router.get('/search/date', verifyToken, verifyLogin, searchArticlesByDate);
+router.get('/top-stories/:category', verifyToken, verifyLogin, getTopStoriesByCategory);
+router.get('/most-shared/:period', verifyToken, verifyLogin, getMostSharedArticles);
+router.get('/book-reviews', verifyToken, verifyLogin, getBookReviews);
+router.get('/articles/section/:section', verifyToken, verifyLogin, getArticlesBySection);
 
 
 module.exports = router;
