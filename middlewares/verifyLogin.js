@@ -1,7 +1,7 @@
 const db = require('../models/db');
 const bcrypt = require('bcryptjs');
 
-const credentials = (req, res, next) => {
+const verifyLogin = (req, res, next) => {
     const { username, password, email } = req.body;
 
     if (!username || !password || !email) {
@@ -18,11 +18,11 @@ const credentials = (req, res, next) => {
         const isValidEmail = user.email === email;
 
         if (!isValidPassword || !isValidEmail) {
-            return res.status(401).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'Invalid verifyLogin' });
         }
 
         next();
     });
 };
 
-module.exports = credentials;
+module.exports = verifyLogin;
