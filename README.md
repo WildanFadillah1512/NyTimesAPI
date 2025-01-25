@@ -1,6 +1,6 @@
 <h1> NyTimesAPI </h1>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=JetBrains+Mono&color=ffffff&size=45&center=false&vCenter=true&width=1000&lines=This+is+our+API+Project;Coding+is+easy.;Right?;%F0%9F%98%83)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=JetBrains+Mono&color=ffffff&size=30&center=false&vCenter=true&width=1000&lines=This+is+our+API+Project;Coding+is+easy.;Right?;%F0%9F%98%83)](https://git.io/typing-svg)
 
 <p>
     <a href="https://www.npmjs.com/package/node"><img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"></a>
@@ -49,4 +49,4 @@ You can see our presentation slides [here.]()
 
 # Report
 
-You can read all of the reports of this REST API Project [here.]()
+You can read all of the reports of this REST API Project [here.](./assets/report.md)

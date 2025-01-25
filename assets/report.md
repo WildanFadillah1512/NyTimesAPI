@@ -1,17 +1,4 @@
-## Introduction
-
-This project enables access to and utilization of data from [The New York Times API](https://developer.nytimes.com/). By using this API, the application can retrieve popular news, articles, and other relevant data. Additionally, this project includes a simple CRUD functionality. Beyond fulfilling the requirements for our programming-based coursework, this code is also **open-source and available for everyone to use.**
-
-## Database Design
-
-### ERD (Entity Relationship Diagram)
-
-![ERD Diagram](./img/erd.png)
-
-## Packages
-
-Packages that we used on this project.
-Success Rate | Avg Response Time |
+# NY Times REST API Report
 
 <p>
 <a href="https://www.npmjs.com/package/node"><img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"></a>
@@ -29,237 +16,219 @@ Success Rate | Avg Response Time |
     <a href="https://www.npmjs.com/package/nodemon"><img src="https://img.shields.io/github/package-json/dependency-version/WildanFadillah1512/NyTimesAPI/nodemon?color=green" alt="Package - joi"></a>
 </p>
 
-## API Documentation
+## Table of Contents
 
-### Endpoint Overview (Total: 23 Endpoints)
+1. [Introduction](#introduction)
+2. [Database Design](#database-design)
+3. [Endpoints Design](#endpoints-design)
+4. [Backend API Documentation](#backend-api-documentation)
+5. [Public API Integration](#public-api-integration)
+6. [Middleware and Authorization](#middleware-and-authorization)
+7. [Testing](#testing)
+8. [Conclusion](#conclusion)
 
-#### 👤 User Management (4 Endpoints)
+## Introduction
 
-1. **Register User**
+This report details the design and implementation of a REST API for accessing and managing articles, categories, favorites, and user data. The API integrates with the New York Times public API to fetch top stories and other article data. The backend is built using Node.js, Express, and MySQL, with JWT for authorization.
 
-   ```http
-   POST /api/users/signup
-   ```
+## Database Design
 
-2. **Login User**
+The database consists of four related tables:
 
-   ```http
-   POST /api/users/login
-   ```
+1. **Users**
 
-3. **Get User Profile**
+   - `id_user` (Primary Key)
+   - `username`
+   - `password`
+   - `email`
 
-   ```http
-   GET /api/users/:id/profile
-   ```
+2. **Categories**
 
-4. **Update User Profile**
-   ```http
-   PUT /api/users/:id/profile
-   ```
+   - `id_category` (Primary Key)
+   - `name`
 
-#### 🎬 Movie Management (6 Endpoints)
+3. **Articles**
 
-1. **Search Movies**
+   - `id_article` (Primary Key)
+   - `id_category` (Foreign Key)
+   - `title`
+   - `author`
+   - `published_date`
+   - `url`
 
-   ```http
-   GET /api/movies?query=string&page=integer
-   ```
+4. **Favorites**
+   - `id_favorite` (Primary Key)
+   - `id_user` (Foreign Key)
+   - `id_article` (Foreign Key)
 
-2. **Get Popular Movies**
+<p align="center">
+        <img width=80% src="./images/erd.png" />
+</p>
 
-   ```http
-   GET /api/movies/popular
-   ```
+## Endpoints Design
 
-3. **Get Movie Details**
+The API provides a total of **24 endpoints** for managing articles, categories, favorites, and user data, as well as fetching data from the [New York Times API](https://developer.nytimes.com/).
 
-   ```http
-   GET /api/movies/:id
-   ```
+## Backend API Documentation
 
-4. **Get Movie Cast**
+### Users
 
-   ```http
-   GET /api/movies/:id/cast
-   ```
+- **POST /api/users/register**
 
-5. **Get Movies by Genre**
+  - Parameters: `username`, `password`, `email`
+  - Expected Result: `{ message: "User registered successfully" }`
 
-   ```http
-   GET /api/movies/genre/:genre
-   ```
+- **POST /api/users/login**
 
-6. **Get Movies by Year**
-   ```http
-   GET /api/movies/year/:year
-   ```
+  - Parameters: `username`, `password`, `email`
+  - Expected Result: `{ token: "JWT_TOKEN" }`
 
-#### 📋 Watchlist Management (4 Endpoints)
+- **GET /api/users/profile**
 
-1. **Add to Watchlist**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `{ username, email }`
 
-   ```http
-   POST /api/watchlist
-   ```
+- **PUT /api/users/profile**
 
-2. **Get User Watchlist**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `username`, `password`, `email`
+  - Expected Result: `{ message: "User updated successfully" }`
 
-   ```http
-   GET /api/watchlist/:userId
-   ```
+- **DELETE /api/users/profile**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `{ message: "User deleted successfully" }`
 
-3. **Remove from Watchlist**
+### Articles
 
-   ```http
-   DELETE /api/watchlist/:userId/:movieId
-   ```
+- **GET /api/articles**
 
-4. **Get Watchlist Count**
-   ```http
-   GET /api/watchlist/:userId/count
-   ```
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `[ { id_article, title, author, published_date, url, category } ]`
 
-#### ⭐ Review Management (5 Endpoints)
+- **POST /api/articles**
 
-1. **Submit Review**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `id_category`, `title`, `author`, `published_date`, `url`
+  - Expected Result: `{ message: "Article added successfully" }`
 
-   ```http
-   POST /api/reviews
-   ```
+- **PUT /api/articles/:id_article**
 
-2. **Get Movie Reviews**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `title`, `author`, `published_date`, `url`, `id_category`
+  - Expected Result: `{ message: "Article updated successfully" }`
 
-   ```http
-   GET /api/reviews/movie/:movieId
-   ```
+- **DELETE /api/articles/:id_article**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `{ message: "Article deleted successfully" }`
 
-3. **Get User Reviews**
+### Categories
 
-   ```http
-   GET /api/reviews/user/:userId
-   ```
+- **GET /api/categories**
 
-4. **Update Review**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `[ { id_category, name } ]`
 
-   ```http
-   PUT /api/reviews/:reviewId
-   ```
+- **POST /api/categories**
 
-5. **Delete Review**
-   ```http
-   DELETE /api/reviews/:reviewId
-   ```
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `name`
+  - Expected Result: `{ message: "Category added successfully" }`
 
-#### 🔍 Search History Management (4 Endpoints)
+- **PUT /api/categories/:id_category**
 
-1. **Record Search**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `name`
+  - Expected Result: `{ message: "Category updated successfully" }`
 
-   ```http
-   POST /api/search-history
-   ```
+- **DELETE /api/categories/:id_category**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `{ message: "Category deleted successfully" }`
 
-2. **Get User Search History**
+### Favorites
 
-   ```http
-   GET /api/search-history/:userId
-   ```
+- **GET /api/favorites**
 
-3. **Delete Search History**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `[ { id_favorite, title, author, published_date, url, category } ]`
 
-   ```http
-   DELETE /api/search-history/:userId
-   ```
+- **POST /api/favorites**
 
-4. **Get Search Analytics**
-   ```http
-   GET /api/search-history/:userId/analytics
-   ```
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `id_article`
+  - Expected Result: `{ message: "Added to favorites" }`
 
-#### For more details about API documentation, you can see on the [following page.](https://documenter.getpostman.com/view/40816838/2sAYQUqECL)
+- **PUT /api/favorites/:id_favorite**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `id_article`
+  - Expected Result: `{ message: "Favorite updated successfully" }`
+
+- **DELETE /api/favorites/:id_favorite**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `{ message: "Removed from favorites" }`
+
+### NY Times
+
+- **GET /api/nyt/top-stories**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Expected Result: `{ results: [ ... ] }`
+
+- **GET /api/nyt/search**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `query`
+  - Expected Result: `{ results: [ ... ] }`
+
+- **GET /api/nyt/search/date**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `query`, `begin_date`, `end_date`
+  - Expected Result: `{ results: [ ... ] }`
+
+- **GET /api/nyt/top-stories/:category**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `category`
+  - Expected Result: `{ results: [ ... ] }`
+
+- **GET /api/nyt/most-shared/:period**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `period`
+  - Expected Result: `{ results: [ ... ] }`
+
+- **GET /api/nyt/book-reviews**
+
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `query`
+  - Expected Result: `{ results: [ ... ] }`
+
+- **GET /api/nyt/articles/section/:section**
+  - Headers: `Authorization: Bearer JWT_TOKEN`
+  - Parameters: `section`
+  - Expected Result: `{ results: [ ... ] }`
+
+You can see more details in the following documentation [here](https://documenter.getpostman.com/view/40838067/2sAYQanBYG)
+
+## Testing
+
+Each endpoint has been tested using Postman to ensure correct functionality and expected results.
+
+1. ![API Testing](images/api_testing.png)
 
 ## Public API Integration
 
-### TMDB API Integration
+The API integrates with the New York Times public API to fetch top stories, search articles, get most shared articles, and book reviews.
 
-```javascript
-const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
-const tmdbAxios = axios.create({
- baseURL: TMDB_BASE_URL,
- headers: {
-  Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`,
-  Accept: 'application/json',
- },
-});
-```
+## Middleware and Authorization
 
-## Authentication & Middleware
+The API uses several middleware functions for validation and authorization:
 
-### JWT Implementation
+- **patternValidation**: Validates request body using Joi.
+- **verifyLogin**: Verifies user credentials.
+- **verifyToken**: Verifies JWT token.
 
-```javascript
-const token = jwt.sign(
- { id: user.id, username: user.username },
- process.env.JWT_SECRET,
- { expiresIn: '24h' }
-);
-```
+## Conclusion
 
-### Authentication Middleware
-
-```javascript
-const verifyToken = (req, res, next) => {
- const token = req.headers.authorization?.split(' ')[1];
- if (!token) {
-  return res.status(401).json({
-   message: 'Access denied',
-  });
- }
- try {
-  const verified = jwt.verify(token, process.env.JWT_SECRET);
-  req.user = verified;
-  next();
- } catch (error) {
-  res.status(400).json({
-   message: 'Invalid token',
-  });
- }
-};
-```
-
-## Testing Results
-
-### Endpoint Testing Summary
-
-| Category  | Total Endpoints |
-| --------- | --------------- |
-| Users     | 4               |
-| Movies    | 6               |
-| Watchlist | 4               |
-| Reviews   | 5               |
-| Search    | 4               |
-
-### Test Examples using Postman
-
-#### User Registration Test
-
-![user signup](./img/signup.png)
-
-#### Login User Test
-
-![user signup](./img/login.png)
-
-#### Search Movie Test
-
-![user signup](./img/search.png)
-
-## End of Report
-
-MovieVerse API has been successfully implemented by fulfilling all the required criteria:
-
-1. ✅ Database design with 4 related tables
-2. ✅ 23 endpoint designs (exceeding the minimum of 20)
-3. ✅ Complete documentation for each endpoint
-4. ✅ Integration with TMDB API
-5. ✅ Middleware and JWT Authorization implementation
-6. ✅ Testing for all endpoints
+This report details the design and implementation of a REST API for managing articles, categories, favorites, and user data, with integration to the New York Times public API. The API uses middleware for validation and authorization, ensuring secure and reliable access to resources.
