@@ -1,5 +1,3 @@
-(Bahasa Indonesia)
-
 Articles
 GET /api/articles: Get all articles from the database. ✅ (authentication)
 POST /api/articles: Adds a new article to the database. ✅ (authentication)
@@ -36,22 +34,13 @@ GET /api/nyt/articles/section/:section: Getting articles based on a specific sec
 
 now create a documentation on postman and post it to the web:
 
-- Users
-POST /api/users/register: Register a new user. ✅ (update security sederhana dan beberapa kriteria string gitu untuk register dan login)
-POST /api/users/login: Logging in and getting an authentication token. ✅ (update security sederhana dan beberapa kriteria string gitu untuk register dan login)
-GET /api/users/profile: Get the profile of the user who is logged in (authentication required). ✅
-PUT /api/users/profile: Updates the user profile (authentication required) ✅.
-DELETE /api/users/profile: Deleting a user account (authentication required) ✅.
+- Articles (y)
+- Categories (y)
+- Favorites (y)
+- Users (y)
+- Articles (y)
+- NY Times (y)
 
-- Categories
-GET /api/categories: Get all categories from the database. ✅ (authentication)
-POST /api/categories: Adds a new category to the database. ✅ (authentication)
-PUT /api/categories/:id_category: Updates the category by ID. ✅ (authentication)
-DELETE /api/categories/:id_category: Deleting a category by ID. ✅ (authentication)
-
-- NY Times
-GET /api/nyt/top-stories: Get top stories from NYT ✅. (authentication)
-GET /api/nyt/top-stories/:category: Get the top stories by category. ✅ (authentication)
-GET /api/nyt/search: Searches for articles based on keywords. ✅ (authentication)
-GET /api/nyt/search/date: Search for articles based on keywords with a date range.✅ (authentication)
-GET /api/nyt/most-shared/:period: Gets the most shared articles by period (1, 7, or 30 days). ✅ (authentication)
+after retesting the code, i want to add some feature, especially at security
+- add a basic logic (if the username, password, and email not meet requirement then you can't login) (y)
+- add the login verification, especially at NY Times endpoint (including your username, password, email) (y)

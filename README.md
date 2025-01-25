@@ -19,7 +19,7 @@
 
 ## Introduction
 
-This project enables access to and utilization of data from [The New York Times API](https://developer.nytimes.com/). By using this API, the application can retrieve popular news, articles, and other relevant data. Additionally, this project includes a simple CRUD functionality. Beyond fulfilling the requirements for our programming-based coursework, this code is also open-source and available for everyone to use.
+This project enables access to and utilization of data from [The New York Times API](https://developer.nytimes.com/). By using this API, the application can retrieve popular news, articles, and other relevant data. Additionally, this project includes a simple CRUD functionality. Beyond fulfilling the requirements for our programming-based coursework, this code is also **open-source and available for everyone to use.**
 
 ## Purpose
 
