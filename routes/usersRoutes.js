@@ -8,8 +8,8 @@ const router = express.Router();
 
 router.post('/register', patternValidation(schema), register);
 router.post('/login', patternValidation(schema), verifyLogin, login);
-router.get('/profile', patternValidation(schema), verifyToken, verifyLogin, getProfile);
-router.put('/profile', patternValidation(schema), verifyToken, updateUser);
-router.delete('/profile', patternValidation(schema), verifyToken, deleteUser);
+router.get('/profile', patternValidation(schema), verifyLogin, verifyToken, getProfile);
+router.put('/profile', patternValidation(schema), verifyLogin, verifyToken, updateUser);
+router.delete('/profile', patternValidation(schema), verifyLogin, verifyToken, deleteUser);
 
 module.exports = router;
