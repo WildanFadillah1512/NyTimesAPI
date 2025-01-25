@@ -37,19 +37,15 @@ const getProfile = (req, res) => {
   const { id_user } = req.user;
 
   const query = "SELECT username, email FROM users WHERE id_user = ?";
-  db.query(query, [id_user], (err, results) => {
+  db.query(query, [id_user], (err) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json(results[0]);
+    res.json({ message: "Users are verified!" });
   });
 };
 
 const updateUser = (req, res) => {
   const { id_user } = req.user;
   const { username, password, email } = req.body;
-
-  if (!username || !password || !email) {
-    return res.status(400).json({ message: "Username, password and email are required" });
-  }
 
   const hashedPassword = bcrypt.hashSync(password, 10);
   const query =
