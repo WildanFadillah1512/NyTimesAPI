@@ -1,10 +1,5 @@
 const express = require('express');
-const {
-    getUserFavorites,
-    addFavorite,
-    updateFavorite,
-    removeFavorite,
-} = require('../controllers/favoritesController');
+const { getUserFavorites, addFavorite, updateFavorite, removeFavorite, } = require('../controllers/favoritesController');
 const verifyToken = require('../middlewares/verifyToken');
 const verifyLogin = require('../middlewares/verifyLogin');
 

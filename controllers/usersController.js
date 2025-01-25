@@ -21,30 +21,15 @@ const register = (req, res) => {
 };
 
 const login = (req, res) => {
-  const { username, password, email } = req.body;
 
-  if (!username || !password || !email) {
-    return res.status(400).json({ message: "Username, password and email are required" });
-  }
+  const user = req.user;
 
-  const query = "SELECT * FROM users WHERE username = ?";
-  db.query(query, [username], (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    if (results.length === 0)
-      return res.status(404).json({ message: "User not found" });
-
-    const user = results[0];
-    const isValid = bcrypt.compareSync(password, user.password);
-
-    if (!isValid) return res.status(401).json({ message: "Invalid password" });
-
-    const token = jwt.sign(
-      { id_user: user.id_user, username: user.username },
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
-    );
-    res.json({ token });
-  });
+  const token = jwt.sign(
+    { id_user: user.id_user, username: user.username },
+    process.env.JWT_SECRET,
+    { expiresIn: "1h" }
+  );
+  res.json({ token });
 };
 
 const getProfile = (req, res) => {

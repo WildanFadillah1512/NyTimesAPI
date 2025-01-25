@@ -4,10 +4,6 @@ const bcrypt = require('bcryptjs');
 const verifyLogin = (req, res, next) => {
     const { username, password, email } = req.body;
 
-    if (!username || !password || !email) {
-        return res.status(400).json({ message: "Username, password, and email are required" });
-    }
-
     const query = "SELECT * FROM users WHERE username = ?";
     db.query(query, [username], (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -17,10 +13,15 @@ const verifyLogin = (req, res, next) => {
         const isValidPassword = bcrypt.compareSync(password, user.password);
         const isValidEmail = user.email === email;
 
-        if (!isValidPassword || !isValidEmail) {
-            return res.status(401).json({ message: 'Invalid verifyLogin' });
+        if (!isValidPassword) {
+            return res.status(400).json({ message: 'Invalid password' });
         }
 
+        if (!isValidEmail) {
+            return res.status(400).json({ message: 'Invalid email' });
+        }
+
+        req.user = user;
         next();
     });
 };
