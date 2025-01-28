@@ -211,11 +211,27 @@ The API provides a total of **24 endpoints** for managing articles, categories, 
 
 You can see more details in the following documentation [here](https://documenter.getpostman.com/view/40838067/2sAYQanBYG)
 
-## Testing
+## Testing Result
 
 Each endpoint has been tested using Postman to ensure correct functionality and expected results.
 
-1. ![API Testing](images/api_testing.png)
+**1. Login**
+
+<p align="center">
+        <img src="./images/testing/login.png" />
+</p>
+
+**2. NY Times**
+
+<p align="center">
+        <img src="./images/testing/ny-times.png" />
+</p>
+
+**3. Get Database Article**
+
+<p align="center">
+        <img src="./images/testing/article.png" />
+</p>
 
 ## Public API Integration
 

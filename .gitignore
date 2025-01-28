@@ -1,3 +1,9 @@
 *.sql
 node_modules/
 .env
+
+# Old Testing
+images/favorites/
+images/nyt/
+images/personalArticles/
+images/personalCategories/
