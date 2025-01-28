@@ -102,6 +102,7 @@ The API provides a total of **24 endpoints** for managing articles, categories, 
 
 - **GET /api/articles**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Expected Result: `[ { id_article, title, author, published_date, url, category } ]`
 
@@ -125,6 +126,7 @@ The API provides a total of **24 endpoints** for managing articles, categories, 
 
 - **GET /api/categories**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Expected Result: `[ { id_category, name } ]`
 
@@ -148,6 +150,7 @@ The API provides a total of **24 endpoints** for managing articles, categories, 
 
 - **GET /api/favorites**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Expected Result: `[ { id_favorite, title, author, published_date, url, category } ]`
 
@@ -171,40 +174,47 @@ The API provides a total of **24 endpoints** for managing articles, categories, 
 
 - **GET /api/nyt/top-stories**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Expected Result: `{ results: [ ... ] }`
 
 - **GET /api/nyt/search**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Parameters: `query`
   - Expected Result: `{ results: [ ... ] }`
 
 - **GET /api/nyt/search/date**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Parameters: `query`, `begin_date`, `end_date`
   - Expected Result: `{ results: [ ... ] }`
 
 - **GET /api/nyt/top-stories/:category**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Parameters: `category`
   - Expected Result: `{ results: [ ... ] }`
 
 - **GET /api/nyt/most-shared/:period**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Parameters: `period`
   - Expected Result: `{ results: [ ... ] }`
 
 - **GET /api/nyt/book-reviews**
 
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Parameters: `query`
   - Expected Result: `{ results: [ ... ] }`
 
 - **GET /api/nyt/articles/section/:section**
+  - Parameters: `username`, `password`, `email`
   - Headers: `Authorization: Bearer JWT_TOKEN`
   - Parameters: `section`
   - Expected Result: `{ results: [ ... ] }`

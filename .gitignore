@@ -3,7 +3,10 @@ node_modules/
 .env
 
 # Old Testing
-images/favorites/
-images/nyt/
-images/personalArticles/
-images/personalCategories/
+assets/images/favorites/
+assets/images/nyt/
+assets/images/personalArticles/
+assets/images/personalCategories/
+
+# hehehehehe
+assets/*.docx
