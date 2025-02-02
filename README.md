@@ -45,7 +45,7 @@ You can read the API documentation on the [following page.](https://documenter.g
 
 # Presentation
 
-You can see our presentation slides [here.]()
+You can see our presentation slides [here.](https://www.canva.com/design/DAGd9K2iFwQ/RZIqJW2Q7vBzYCLgWAtyKA/edit?utm_content=DAGd9K2iFwQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 # Report
 
